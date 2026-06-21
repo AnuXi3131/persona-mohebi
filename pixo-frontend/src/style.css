@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@import "./css/fonts.css";
+@import "./css/animations.css";
+@import "./css/header.css";
+@import "./css/button.css";
+@import "./css/card.css";
+@import "./css/forms.css";
+@import "./css/select.css";
+@import "./css/loader.css";
+@import "./css/experience.css";
+@import "./css/toastify.css";
+@import "./css/plyr.css";
+
+/* ---------------------------------- */
+
+@custom-variant dark (&: where(.dark, .dark *));
+
+/* ---------------------------------- */
+
+@theme {
+  /* colors */
+  --color-background: #0e0e10;
+  --color-surface: #1a1a1d;
+  --color-primary: #fe526c;
+  --color-accent: #fd356e;
+  --color-secondary: #fd356e14;
+  --color-text: #e5e7eb;
+  --color-muted: #9ca3af;
+  --color-border: #2e2e30;
+  --color-success: #10b981;
+  --color-danger: #e11d48;
+  --color-primary-blue: #4776e6;
+  --color-primary-violet: #8e54e9;
+
+  /* transitions */
+  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-snappy: cubic-bezier(0.3, 1.2, 0.7, 1);
+  --ease-bouncy: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+
+  /* animations */
+  --animate-blink: animate-blink 1s var(--ease-decelerate) infinite;
+  --animate-bar: animate-bar 1s var(--ease-decelerate) infinite;
+  --animate-fade-in: animate-fade-in 1s var(--ease-smooth) forwards;
+  --animate-fade-out: animate-fade-out 1s var(--ease-smooth) forwards;
+
+  /* fonts */
+  --font-base-medium: "dana-regular", sans-serif;
+  --font-base-bold: "dana-bold", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+
+  /* z index's */
+  --header-z-index: 100;
+  --nav-z-index: 101;
+  --menu-toggle-z-index: 102;
+  --scroll-line-z-index: 103;
+  --cursor-z-index: 200;
+  --loader-z-index: 199;
+  --select-options-z-index: 99;
+  --gallery-modal-z-index: 198;
+}
+
+.light {
+  --color-background: #f9fafb;
+  --color-surface: #ffffff;
+  --color-text: #1f2937;
+  --color-muted: #6b7280;
+  --color-border: #e5e7eb;
+
+  /* [data-logo] {
+    @apply invert;
+  } */
+}
+
+/* ---------------------------------- */
+@layer utilities {
+  .bg-linear {
+    @apply from-primary-blue to-primary-violet bg-gradient-to-r;
+  }
+
+  .ghost-btn {
+    @apply border-accent/20 bg-accent/90 border-2 border-solid text-white;
+    box-shadow: inset 0 -6px 10px var(--color-secondary);
+  }
+}
+
+@layer base {
+  ::selection {
+    @apply bg-text text-background;
+  }
+
+  body,
+  html,
+  a,
+  button,
+  input,
+  textarea {
+    @apply !cursor-none;
+  }
+
+  html {
+    @apply scroll-smooth;
+    direction: rtl;
+  }
+
+  html::-webkit-scrollbar {
+    @apply w-2 rounded-full bg-neutral-700;
+  }
+
+  html::-webkit-scrollbar-thumb {
+    @apply rounded-full border-2 border-solid border-black bg-white;
+  }
+
+  body {
+    @apply font-base-medium text-text bg-background h-screen overflow-x-hidden text-base;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-base-bold;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    @apply border-none outline-none;
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    @apply !outline-text outline outline-solid;
+  }
+
+  i {
+    @apply not-italic;
+  }
+
+  figure,
+  img {
+    @apply select-none;
+  }
+
+  c-socials {
+    @apply w-full;
+  }
+}
+
+/* a class for portfolio slide button active state */
+[data-portfolio-btn].active {
+  span {
+    @apply opacity-100;
+  }
+}
+
+/* ---------------------------------- */
+
+@utility container {
+  margin-inline: auto;
+  max-width: 1520px;
+}
+
+/* ---------------------------------- */
+/* Custom Player Styles */
+.plyr--video {
+  @apply rounded-t-lg;
+}
+
+.plyr__poster,
+.plyr--audio__poster {
+  @apply bg-surface;
+}
+
+/* ---------------------------------- */
+.prose {
+  @apply w-full! max-w-full!;
+
+  * {
+    @apply text-text!;
+  }
+
+  img {
+    @apply border-border rounded-lg border border-solid;
+  }
+
+  [aria-hidden="true"].absolute {
+    @apply pointer-events-auto relative h-full;
+  }
+}
+
+/* ---------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  [data-main-header],
+  .fade-in,
+  .fade-out,
+  a,
+  button,
+  .btn-hover-effect {
+    animation: none !important;
+    transition: none !important;
+  }
+}

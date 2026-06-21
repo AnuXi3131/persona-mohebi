@@ -1,0 +1,19 @@
+[data-input] {
+  @apply border-border focus-within:border-text w-full rounded-lg border-2 border-solid px-4 py-3 text-xl;
+}
+
+[data-input-placeholder] {
+  @apply ease-decelerate text-muted bg-surface pointer-events-none absolute top-4 right-4 text-xl text-nowrap duration-200;
+
+  [data-placeholder-char] {
+    @apply ease-decelerate duration-200;
+  }
+
+  &.active {
+    @apply -translate-x-4 -translate-y-8 px-3;
+
+    [data-placeholder-char] {
+      @apply text-text;
+    }
+  }
+}

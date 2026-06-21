@@ -1,0 +1,7 @@
+.loader {
+  @apply bg-background/90 fixed inset-0 z-[var(--loader-z-index)] flex flex-row-reverse items-center justify-center gap-1;
+}
+
+.loader-bar {
+  @apply bg-accent shadow-accent animate-bar h-12 w-2 rounded-lg shadow-lg;
+}

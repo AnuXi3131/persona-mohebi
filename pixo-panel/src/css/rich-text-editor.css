@@ -1,0 +1,202 @@
+/* ─────────────────────────────────────────── */
+/* WRAPPER */
+/* ─────────────────────────────────────────── */
+
+.rich-text-editor-wrapper * {
+  @apply font-base;
+}
+
+.tox-edit-area::before {
+  @apply border-foreground/20!;
+}
+
+.tox-tinymce {
+  @apply border-border! border border-solid;
+}
+
+.rich-text-editor-wrapper.rich-text-editor-error {
+  @apply border-destructive!;
+}
+
+.rich-text-editor-wrapper.rich-text-editor-disabled {
+  @apply pointer-events-none opacity-60;
+}
+
+/* ─────────────────────────────────────────── */
+/* TOOLBAR */
+/* ─────────────────────────────────────────── */
+.rich-text-editor-wrapper .tox-toolbar__primary {
+  @apply bg-accent!;
+}
+
+.rich-text-editor-wrapper .tox-editor-header {
+  @apply bg-accent! text-secondary-foreground border-border rounded-t-lg border-b px-2 py-1;
+}
+
+.rich-text-editor-wrapper .tox-toolbar__group button {
+  @apply text-foreground rounded-md border border-transparent bg-transparent px-2 py-1 text-sm transition;
+
+  span > svg {
+    @apply fill-secondary-foreground;
+  }
+}
+
+/* Active button */
+.rich-text-editor-wrapper .tox-tbtn--enabled {
+  @apply bg-foreground! text-primary-foreground! border-border;
+
+  span > svg {
+    @apply fill-accent!;
+  }
+}
+
+/* Buttons disabled */
+.rich-text-editor-wrapper .tox-tbtn--disabled {
+  @apply opacity-50;
+}
+
+/* Focus ring */
+.rich-text-editor-wrapper .tox-tbtn {
+  @apply focus-visible:ring-primary/60 focus-visible:ring-2 focus-visible:outline-none;
+}
+
+/* Select font size btn */
+.rich-text-editor-wrapper .tox-tbtn--select {
+  @apply border-border! border-2! border-solid!;
+
+  &:hover {
+    @apply text-background! bg-foreground!;
+  }
+}
+
+/* ─────────────────────────────────────────── */
+/* EDITABLE AREA */
+/* TinyMCE uses iframe, so targeting must include iframe body */
+/* ─────────────────────────────────────────── */
+.rich-text-editor-wrapper .tox-edit-area {
+  @apply bg-card;
+}
+
+.rich-text-editor-wrapper .tox-edit-area iframe html body {
+  @apply bg-card text-foreground leading-base! min-h-[220px] p-4 outline-none;
+}
+
+.tox-statusbar {
+  @apply bg-accent! border-t-border! h-max!;
+
+  * {
+    @apply text-foreground! fill-foreground;
+  }
+
+  .tox-statusbar__branding {
+    @apply hidden;
+  }
+}
+
+/* Headings */
+.rich-text-editor-wrapper .tox-edit-area iframe html body h2 {
+  @apply mb-2 text-2xl font-bold;
+}
+
+.rich-text-editor-wrapper .tox-edit-area iframe html body h3 {
+  @apply mb-2 text-xl font-medium;
+}
+
+.rich-text-editor-wrapper .tox-edit-area iframe html body h4 {
+  @apply mb-2 text-lg font-medium;
+}
+
+/* Blockquote */
+.rich-text-editor-wrapper .tox-edit-area iframe html body blockquote {
+  @apply bg-card/60 border-primary/70 my-4 rounded-md border-r-4 p-4 text-sm italic;
+}
+
+/* Code block */
+.rich-text-editor-wrapper .tox-edit-area iframe html body pre {
+  @apply bg-card border-border my-4 rounded-md border p-3 text-left font-mono text-sm;
+  direction: ltr;
+}
+
+/* Lists */
+.rich-text-editor-wrapper .tox-edit-area iframe html body ul,
+.rich-text-editor-wrapper .tox-edit-area iframe html body ol {
+  @apply mr-6 space-y-1;
+}
+
+/* Tables */
+.rich-text-editor-wrapper .tox-edit-area iframe html body table {
+  @apply border-border my-4 w-full border-collapse overflow-hidden rounded-lg border text-sm;
+}
+
+.rich-text-editor-wrapper .tox-edit-area iframe html body table td,
+.rich-text-editor-wrapper .tox-edit-area iframe html body table th {
+  @apply border-border border px-3 py-2;
+}
+
+.rich-text-editor-wrapper .tox-edit-area iframe html body table th {
+  @apply bg-secondary text-secondary-foreground;
+}
+
+/* ─────────────────────────────────────────── */
+/* DROPDOWNS / MENUS */
+/* ─────────────────────────────────────────── */
+
+.tox-menu {
+  @apply bg-popover! text-foreground! border-border! border! border-solid! shadow-lg!;
+
+  * {
+    @apply text-foreground!;
+
+    & > .tox-collection__item--active {
+      @apply bg-background!;
+    }
+
+    & > .tox-collection__item--enabled {
+      @apply bg-background!;
+    }
+  }
+}
+
+/* ─────────────────────────────────────────── */
+/* DIALOGS / MODALS */
+/* ─────────────────────────────────────────── */
+.tox-dialog {
+  @apply border-border! border! border-solid! bg-transparent!;
+
+  * {
+    @apply text-foreground! font-base!;
+  }
+
+  *:not(input, button, .tox-listbox__select-label) {
+    @apply bg-background!;
+  }
+
+  .tox-listbox__select-chevron svg {
+    @apply fill-foreground!;
+  }
+
+  input,
+  button:not([data-mce-name="close"]) {
+    @apply bg-input! border-border! text-foreground!;
+  }
+
+  .tox-form {
+    @apply gap-4;
+  }
+
+  .tox-label {
+    @apply mb-2;
+  }
+
+  button[data-mce-name="Save"] {
+    @apply bg-foreground! text-primary-foreground!;
+  }
+}
+
+.tox-dialog-wrap__backdrop {
+  @apply bg-background/80!;
+}
+
+.tox-statusbar__path {
+  @apply flex-wrap!;
+}

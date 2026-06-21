@@ -1,0 +1,27 @@
+.timeline-wrapper {
+  @apply absolute top-0 right-4 z-[-1] flex h-full justify-center md:right-10 xl:right-[55.4%];
+}
+
+.timeline {
+  @apply bg-background absolute -top-10 z-30 h-[110%] w-14 md:w-28;
+}
+
+.timeline-logo {
+  @apply border-border bg-surface flex size-10 flex-none items-center justify-center rounded-full border p-1 md:size-20 md:-translate-y-7;
+}
+
+.exp-card-wrapper {
+  @apply flex flex-col-reverse justify-between gap-10 xl:flex-row xl:gap-20;
+}
+
+/* ---------------------------------- */
+.gradient-line {
+  background: linear-gradient(
+    0deg,
+    rgba(69, 222, 196, 0) 0%,
+    var(--color-primary) 25%,
+    var(--color-primary-blue) 37.51%,
+    var(--color-accent) 62.83%,
+    var(--color-primary-violet) 92.91%
+  );
+}

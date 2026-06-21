@@ -1,0 +1,154 @@
+@import "./css/fonts.css";
+@import "tailwindcss";
+@import "./css/rich-text-editor.css";
+
+:root {
+  /* rewrite toastify colors */
+  --toastify-color-light: var(--color-foreground);
+  --toastify-color-dark: var(--color-background);
+  --toastify-color-error: var(--color-error);
+  --toastify-color-success: var(--color-chart-2);
+  --toastify-font-family: var(--font-base);
+}
+
+@utility container {
+  @apply mx-auto max-w-7xl;
+}
+
+@utility default-input {
+  @apply border-border focus-within:border-foreground/20 focus-within:outline-border bg-input/30 w-full border border-solid px-3 py-2 outline-0 outline-transparent duration-100 outline-solid focus-within:outline-3;
+}
+
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+
+@utility font-weight-bold {
+  font-weight: var(--font-bold);
+}
+
+@utility font-weight-medium {
+  font-weight: var(--font-medium);
+}
+
+@utility font-weight-regular {
+  font-weight: var(--font-regular);
+}
+
+@utility font-weight-light {
+  font-weight: var(--font-light);
+}
+
+@utility main-height {
+  @apply min-h-[calc(100vh-57px)];
+}
+
+@utility grid-items-2 {
+  @apply grid gap-6 md:grid-cols-2;
+}
+
+@utility grid-items-3 {
+  @apply grid gap-6 md:grid-cols-2 lg:grid-cols-3;
+}
+
+@utility grid-items-4 {
+  @apply grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+}
+
+@theme {
+  /* colors */
+  --color-background: oklch(0.145 0 0);
+  --color-foreground: oklch(0.985 0 0);
+  --color-card: oklch(0.205 0 0);
+  --color-card-foreground: oklch(0.985 0 0);
+  --color-popover: oklch(0.205 0 0);
+  --color-popover-foreground: oklch(0.985 0 0);
+  --color-primary: oklch(0.922 0 0);
+  --color-primary-foreground: oklch(0.205 0 0);
+  --color-secondary: oklch(0.269 0 0);
+  --color-secondary-foreground: oklch(0.985 0 0);
+  --color-muted: oklch(0.269 0 0);
+  --color-muted-foreground: oklch(0.708 0 0);
+  --color-accent: oklch(0.269 0 0);
+  --color-accent-foreground: oklch(0.985 0 0);
+  --color-error: oklch(0.586 0.253 17.585);
+  --color-destructive: oklch(0.704 0.191 22.216);
+  --color-border: oklch(1 0 0 / 10%);
+  --color-input: oklch(1 0 0 / 15%);
+  --color-ring: oklch(0.556 0 0);
+  --color-chart-1: oklch(0.488 0.243 264.376);
+  --color-chart-2: oklch(0.696 0.17 162.48);
+  --color-chart-3: oklch(0.769 0.188 70.08);
+  --color-chart-4: oklch(0.627 0.265 303.9);
+  --color-chart-5: oklch(0.645 0.246 16.439);
+  --color-sidebar: oklch(0.205 0 0);
+  --color-sidebar-foreground: oklch(0.985 0 0);
+  --color-sidebar-primary: oklch(0.488 0.243 264.376);
+  --color-sidebar-primary-foreground: oklch(0.985 0 0);
+  --color-sidebar-accent: oklch(0.269 0 0);
+  --color-sidebar-accent-foreground: oklch(0.985 0 0);
+  --color-sidebar-border: oklch(1 0 0 / 10%);
+  --color-sidebar-ring: oklch(0.556 0 0);
+
+  /* transitions */
+  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-snappy: cubic-bezier(0.3, 1.2, 0.7, 1);
+  --ease-bouncy: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+
+  /* Font family variable */
+  --font-base:
+    "sans-regular", Tahoma, "Segoe UI", system-ui, -apple-system, Arial,
+    sans-serif;
+
+  /* Common weight variables */
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-bold: 700;
+
+  /* base line-height can be customized */
+  --leading-base: 1.45;
+}
+
+@layer base {
+  html {
+    @apply selection:text-background selection:bg-primary scroll-smooth scheme-dark;
+    scrollbar-color: var(--color-background) var(--color-primary);
+  }
+
+  body {
+    @apply font-base leading-base bg-background text-primary min-h-screen overflow-x-hidden text-base;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  i {
+    @apply not-italic;
+  }
+
+  button {
+    @apply cursor-pointer select-none;
+  }
+
+  input,
+  textarea,
+  button,
+  select {
+    @apply border-none outline-none;
+  }
+
+  figure,
+  img {
+    @apply select-none;
+  }
+
+  [disabled] {
+    @apply pointer-events-none cursor-not-allowed opacity-70 select-none;
+  }
+
+  [data-sidebar-menu-link].active {
+    @apply bg-accent!;
+  }
+}

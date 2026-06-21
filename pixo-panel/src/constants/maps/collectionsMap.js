@@ -1,0 +1,16 @@
+export const collections = [
+  "about",
+  "blog_post",
+  "contact",
+  "experience",
+  "gallery_images",
+  "gallery_videos",
+  "gallery_audios",
+  "hero_section",
+  "page_views",
+  "services",
+  "settings",
+  "skills",
+  "testimonials",
+  "theme_settings",
+];

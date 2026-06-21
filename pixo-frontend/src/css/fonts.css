@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "dana-regular";
+  src: url(/fonts/dana/dana-regular/DanaFaNum-Regular.woff) format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "dana-bold";
+  src: url(/fonts/dana/dana-bold/DanaFaNum-Bold.woff) format("woff");
+  font-display: swap;
+}

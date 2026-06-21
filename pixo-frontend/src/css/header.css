@@ -1,0 +1,115 @@
+c-header {
+  @apply border-border sticky top-0 z-[var(--header-z-index)] border-b border-solid;
+}
+
+c-navigation {
+  @apply z-[var(--nav-z-index)];
+}
+
+[data-main-navigation] {
+  @apply max-md:bg-background max-md:ease-decelerate max-md:from-primary/5 max-md:dark:from-surface max-md:via-background max-md:to-surface max-md:fixed max-md:inset-0 max-md:z-1 max-md:translate-x-full max-md:flex-col max-md:overflow-y-auto max-md:bg-linear-to-t max-md:pt-30 max-md:pb-10 max-md:opacity-0 max-md:delay-200 max-md:duration-400;
+
+  &.active {
+    @apply translate-x-0 opacity-100;
+  }
+}
+
+.tracker {
+  @apply bg-primary ease-soft absolute bottom-[-85%] z-[-1] hidden h-[2px] scale-x-0 rounded-lg opacity-0 duration-400 md:block;
+
+  &.active {
+    @apply scale-x-100 opacity-100;
+  }
+}
+
+[data-nav-links] a {
+  @apply select-none;
+
+  &.active {
+    @apply text-primary pointer-events-none select-none;
+  }
+}
+
+toggle-menu {
+  @apply z-[var(--menu-toggle-z-index)] block md:hidden;
+}
+
+.menu-toggle {
+  @apply text-text bg-surface border-border rounded-lg border border-solid p-2;
+
+  &[aria-expanded="true"] {
+    @apply bg-accent;
+
+    svg {
+      @apply stroke-white;
+    }
+  }
+
+  svg {
+    @apply stroke-text;
+  }
+}
+
+.menu-toggle[data-state="false"] :is(.top, .bottom) {
+  animation: to-open-icon 1s forwards;
+}
+
+.menu-toggle[data-state="true"] :is(.top, .bottom) {
+  animation: to-close-icon 1s forwards;
+}
+
+.menu-toggle .hamburger {
+  transition: rotate 800ms 100ms;
+}
+
+.menu-toggle[data-state="true"] .hamburger {
+  rotate: 1turn;
+}
+
+.menu-toggle .line.top {
+  --rotation: -45deg;
+  transform-origin: 65px 45px;
+}
+
+.menu-toggle .line.bottom {
+  --rotation: 45deg;
+  transform-origin: 60px 55px;
+}
+
+@keyframes to-close-icon {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  40% {
+    stroke-dashoffset: 79.9;
+  }
+  60% {
+    stroke-dashoffset: 79.9;
+    rotate: calc(var(--rotation));
+  }
+  100% {
+    stroke-dashoffset: 0;
+    rotate: var(--rotation);
+  }
+}
+
+@keyframes to-open-icon {
+  0% {
+    stroke-dashoffset: 0;
+    rotate: var(--rotation);
+  }
+  40% {
+    stroke-dashoffset: 79.9;
+    rotate: var(--rotation);
+  }
+  60% {
+    stroke-dashoffset: 79.9;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+[data-switch-toggle-btn].active {
+  @apply from-primary to-accent bg-linear-to-t text-white;
+}

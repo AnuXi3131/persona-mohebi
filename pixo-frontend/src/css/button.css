@@ -1,0 +1,39 @@
+/* c-button custom element button styles */
+[data-button] {
+  @apply ease-decelerate relative z-1 flex items-center justify-center gap-3 overflow-hidden rounded-full border-2 border-solid p-3 text-center text-xl font-semibold duration-200 select-none active:scale-98 md:rounded-lg md:px-4 md:py-3 md:text-2xl;
+  margin: var(--btn-margin, 0 auto);
+  width: var(--btn-width, max-content);
+  background: var(--btn-bg, transparent);
+  border-color: var(--border-color, var(--color-border));
+
+  &:hover,
+  &:focus {
+    @apply !border-transparent text-white;
+
+    .btn-hover-effect {
+      clip-path: circle(105% at 50% 0);
+    }
+  }
+}
+
+.btn-hover-effect {
+  @apply ease-smooth from-primary to-accent absolute inset-0 z-[-1] bg-linear-to-t duration-600;
+  clip-path: circle(0% at 50% 100%);
+}
+
+/* terminal contact actions button styles */
+[data-terminal-actions] {
+  @apply my-5 flex gap-3;
+
+  button {
+    @apply ease-decelerate cursor-none rounded-md px-3 py-1 text-lg duration-200 hover:opacity-70;
+  }
+}
+
+[data-button-restart-terminal-form] {
+  @apply bg-primary-blue text-white;
+}
+
+[data-button-send-terminal-form] {
+  @apply bg-success text-white;
+}

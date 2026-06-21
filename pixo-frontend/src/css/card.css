@@ -1,0 +1,16 @@
+[data-testimonial-card]:hover::before {
+  @apply opacity-100;
+}
+
+[data-testimonial-card]::before {
+  @apply ease-decelerate pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit] p-0.5 opacity-0 duration-200 content-[""];
+  background: radial-gradient(
+    200px circle at var(--x, 50%) var(--y, 50%),
+    var(--color-text),
+    transparent 80%
+  );
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
