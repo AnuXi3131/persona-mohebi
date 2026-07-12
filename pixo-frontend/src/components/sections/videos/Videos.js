@@ -1,9 +1,10 @@
 import { initPlyrPlayers, videoControls } from "../../../helpers/player";
+import Plyr from "plyr";
 
 const videosList = [
   {
     title: "مصاحبه علیرضا محبی",
-    src: "/videos/mohebi-introduction.mp4",
+    src: "https://cdn.imgurl.ir/uploads/q35625_mohebi-introduction.mp4",
     poster: "/images/logo.png",
   },
   {
@@ -13,19 +14,17 @@ const videosList = [
   },
   {
     title: "معرفی مهندس علیرضا محبی",
-    src: "/videos/introduction.mp4",
+    src: "https://cdn.imgurl.ir/uploads/u8458_introduction.mp4",
     poster: "/images/logo.png",
   },
   {
     title: "تبلیغات سفیر برند قسطکا",
-    src: "/videos/instagram-ads.mov",
+    src: "https://cdn.imgurl.ir/uploads/v58119_instagram-ads.mov",
     poster: "/images/logo.png",
   },
 ];
 
 const renderVideos = () => {
-  initPlyrPlayers("[data-video-plyr]", videoControls);
-
   return videosList
     .map(({ poster, src, title }, index) => {
       return /*html*/ `
@@ -51,6 +50,7 @@ const renderVideos = () => {
 export class Videos extends HTMLElement {
   connectedCallback() {
     this.render();
+    initPlyrPlayers("[data-video-plyr]", videoControls);
   }
 
   render() {

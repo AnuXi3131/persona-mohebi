@@ -29,7 +29,6 @@ async function Home() {
   return /*html*/ `
     <div class="animate-fade-in">
       ${html}
-      <videos-section></videos-section>
     </div>
   `;
 }
