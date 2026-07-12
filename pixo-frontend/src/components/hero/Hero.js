@@ -9,7 +9,7 @@ const renderHeroImage = async () => {
   const { file } = await getHero();
   const heroImgSrc = getFileUrl(file);
   return /*html*/ `
-    <img src="${heroImgSrc || "./images/placeholder/no-image.jpg"}" alt="${brandName.fa}" loading="lazy" class="rounded-full object-cover lg:rounded-lg size-full md:w-full md:max-h-[80svh]"/>
+    <img src="${heroImgSrc || "./images/placeholder/no-image.jpg"}" alt="${brandName.fa}" loading="lazy" class="rounded-full object-cover lg:rounded-lg size-full md:w-full "/>
   `;
 };
 
@@ -42,7 +42,7 @@ const renderJobs = async () => {
 
 const renderHeroTemplate = async () => {
   return /*html*/ `
-            <section id="hero" class="pt-10 md:pt-20 relative z-1">
+            <section id="hero" class="pt-10 md:pt-20 relative z-1 mb-30">
                 <!---->
                 <square-bg></square-bg>
                 <!---->

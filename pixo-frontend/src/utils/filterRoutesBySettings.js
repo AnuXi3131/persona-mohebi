@@ -8,6 +8,8 @@ export function filterRoutesBySettings(routes, settingsString) {
   return routes.filter((route) => {
     if (route.hidden === true) return false;
 
+    if (route.key === "videos") return true;
+
     if (!route.key) return true;
 
     return visibility[route.key] === false;

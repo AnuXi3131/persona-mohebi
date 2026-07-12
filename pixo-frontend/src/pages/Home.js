@@ -3,6 +3,7 @@ import { filterRoutesBySettings } from "../utils/filterRoutesBySettings";
 
 const sections = [
   { key: "hero", element: "<hero-section></hero-section>" },
+  { key: "videos", element: "<videos-section></videos-section>" },
   { key: "about", element: "<about-section></about-section>" },
   { key: "services", element: "<services-section></services-section>" },
   { key: "gallery", element: "<gallery-section></gallery-section>" },
@@ -28,6 +29,7 @@ async function Home() {
   return /*html*/ `
     <div class="animate-fade-in">
       ${html}
+      <videos-section></videos-section>
     </div>
   `;
 }

@@ -18,6 +18,7 @@ import "./components/blog/BlogCard";
 import "./components/blog/BlogPost";
 
 import "./components/hero/Hero";
+import "./components/sections/videos/Videos";
 import "./components/sections/about/About";
 import "./components/sections/services/Services";
 import "./components/sections/gallery/Gallery";
